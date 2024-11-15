@@ -2,8 +2,8 @@
 
 import click
 import docker
-from et_engine_cli.tools.commands import tools
-from et_engine_cli.filesystems.commands import filesystems
+from .tools.commands import tools
+from .filesystems.commands import filesystems
 
 @click.group()
 def cli():
