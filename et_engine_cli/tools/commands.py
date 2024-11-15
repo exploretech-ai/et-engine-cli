@@ -36,11 +36,9 @@ def tools():
 def create(name, description):
     """Create a new tool"""
     try:
-        status = engine.tools.create(name, description)
-        if status.ok:
-            click.echo(f"Tool '{name}' created successfully.")
-        else:
-            click.echo("Failed to create tool.", err=True)
+        new_tool = engine.tools.create_tool(name, description)
+        click.echo(new_tool)
+
     except Exception as e:
         click.echo(f"Error: {str(e)}", err=True)
 

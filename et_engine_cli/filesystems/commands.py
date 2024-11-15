@@ -25,11 +25,9 @@ def filesystems():
 def create(name):
     """Create a new filesystem"""
     try:
-        status = engine.filesystems.create(name)
-        if status.ok:
-            click.echo(f"Filesystem '{name}' created successfully.")
-        else:
-            click.echo("Failed to create filesystem.", err=True)
+        new_filesystem = engine.filesystems.create_filesystem(name)
+        click.echo(new_filesystem)
+        
     except Exception as e:
         click.echo(f"Error: {str(e)}", err=True)
 
