@@ -78,7 +78,7 @@ def build(path, file, platform, name):
     # Build the image
     kwargs = {
         "path": path,
-        "tag": tool.id,
+        "tag": tool.tool_id,
         "dockerfile": file,
         "quiet": False
     }
@@ -95,7 +95,7 @@ def build(path, file, platform, name):
             click.echo(chunk["stream"], nl=False)
 
     # Final message
-    success = image.tag(f"tools.exploretech.ai/{tool.id}")
+    success = image.tag(f"tools.exploretech.ai/{tool.tool_id}")
     if success:
         click.echo(f"Push using 'et tools push {name}'")
     else:
@@ -109,7 +109,7 @@ def push(name):
 
     client = docker.from_env()
     tool = engine.tools.connect(name)
-    generator = client.images.push(f"tools.exploretech.ai/{tool.id}", stream=True, decode=True)
+    generator = client.images.push(f"tools.exploretech.ai/{tool.tool_id}", stream=True, decode=True)
 
     for chunk in generator:
         click.echo(chunk)
