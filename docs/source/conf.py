@@ -5,7 +5,6 @@ import sys
 sys.path.insert(0, os.path.abspath('.'))
 sys.path.insert(0, os.path.abspath('..'))
 sys.path.insert(0, os.path.abspath('../et_engine_cli'))
-import et_engine_cli
 
 project = 'ET Engine Command Line Interface'
 copyright = '2024, Exploration Technologies, Inc.'
