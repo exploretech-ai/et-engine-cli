@@ -45,12 +45,24 @@ def create(name, description):
 
 @tools.command()
 def list():
-    """Create a new tool"""
+    """Lists all available tools"""
     try:
         tool_list = engine.tools.list_tools()
         for t in tool_list:
             click.echo(t)
+    except Exception as e:
+        click.echo(f"Error: {str(e)}", err=True)
 
+
+@tools.command()
+@click.argument('name')
+def delete(name):
+    """Deletes the tool [NOTE: This action cannot be un-done!]"""
+    try:
+        tool = engine.tools.connect(name)
+        if not click.confirm(f"Are you sure you want to delete '{name}'?"):
+            return
+        tool.delete()
     except Exception as e:
         click.echo(f"Error: {str(e)}", err=True)
 
