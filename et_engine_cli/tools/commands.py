@@ -61,6 +61,7 @@ def delete(name):
     try:
         tool = engine.tools.connect(name)
         if not click.confirm(f"Are you sure you want to delete '{name}'?"):
+            click.echo("Aborted")
             return
         tool.delete()
     except Exception as e:
