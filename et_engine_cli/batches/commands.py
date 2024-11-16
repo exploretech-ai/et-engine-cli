@@ -1,6 +1,5 @@
 import click
 import os
-import json
 import sys
 
 import et_engine as et
@@ -16,13 +15,13 @@ def check_api_key():
 
 @click.group()
 def batches():
-    """Filesystem operations"""
+    """Batches operations"""
     check_api_key()
 
 
 @batches.command()
 def list():
-    """List all filesystems"""
+    """List all batches for the user"""
     try:
         batch_list = engine.batches.list_batches()
         for b in batch_list:
@@ -35,7 +34,7 @@ def list():
 
 @batches.command()
 def clear():
-    """Delete a filesystem"""
+    """Deletes all batches for the user"""
     try:
         engine.batches.clear_batches()
         click.echo("Successfully cleared batches.")
