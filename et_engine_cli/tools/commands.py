@@ -44,6 +44,18 @@ def create(name, description):
 
 
 @tools.command()
+def list():
+    """Create a new tool"""
+    try:
+        tool_list = engine.tools.list_tools()
+        for t in tool_list:
+            click.echo(t)
+
+    except Exception as e:
+        click.echo(f"Error: {str(e)}", err=True)
+
+
+@tools.command()
 @click.argument('name')
 def status(name):
     """Get status of a tool"""
