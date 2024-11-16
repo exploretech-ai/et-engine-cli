@@ -37,7 +37,7 @@ def clear():
     """Deletes all batches for the user"""
     try:
         engine.batches.clear_batches()
-        click.echo("Successfully cleared batches.")
+        click.echo("Successfully cleared batches")
     except Exception as e:
         click.echo(f"Error: {str(e)}", err=True)
 
