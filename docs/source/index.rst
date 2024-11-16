@@ -37,3 +37,4 @@ CLI Reference
 
    tools
    filesystems
+   batches

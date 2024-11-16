@@ -4,6 +4,7 @@ import click
 import docker
 from .tools.commands import tools
 from .filesystems.commands import filesystems
+from .batches.commands import batches
 
 @click.group()
 def cli():
@@ -22,6 +23,7 @@ def login():
 
 cli.add_command(tools)
 cli.add_command(filesystems)
+cli.add_command(batches)
 
 
 if __name__ == '__main__':
