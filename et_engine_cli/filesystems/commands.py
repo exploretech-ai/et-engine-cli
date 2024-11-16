@@ -37,9 +37,8 @@ def list():
     """List all filesystems"""
     try:
         filesystem_list = engine.filesystems.list_filesystems()
-        click.echo(json.dumps(filesystem_list, indent=2))
-    except PermissionError as e: #used to be AuthenticationError from et_engine.errors
-        click.echo(f"Authentication Error: {str(e)}", err=True)
+        for f in filesystem_list:
+            click.echo(f)
     except Exception as e:
         click.echo(f"Error: {str(e)}", err=True)
 
