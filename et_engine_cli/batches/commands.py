@@ -41,3 +41,16 @@ def clear():
     except Exception as e:
         click.echo(f"Error: {str(e)}", err=True)
 
+
+@batches.command()
+@click.argument('batch_id')
+def delete(batch_id):
+    """Deletes the batch without canceling any jobs [NOTE: This action cannot be un-done!]"""
+    try:
+        batch = engine.batches.connect(batch_id)
+        if not click.confirm(f"Are you sure you want to delete Batch '{batch_id}'?"):
+            click.echo("Aborted")
+            return
+        batch.delete()
+    except Exception as e:
+        click.echo(f"Error: {str(e)}", err=True)
