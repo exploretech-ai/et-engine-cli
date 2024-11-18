@@ -54,3 +54,14 @@ def delete(batch_id):
         batch.delete()
     except Exception as e:
         click.echo(f"Error: {str(e)}", err=True)
+
+@batches.command()
+@click.argument('batch_id')
+def status(batch_id):
+    """Summarizes the status of a Batch"""
+    try:
+        batch = engine.batches.connect(batch_id)
+        status = batch.status()
+        click.echo(status)
+    except Exception as e:
+        click.echo(f"Error: {str(e)}", err=True)
