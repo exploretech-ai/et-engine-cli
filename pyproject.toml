@@ -14,7 +14,7 @@ license = {file = "LICENSE"}
 dependencies = [
     "click>=8.1",
     "docker",
-    "et_engine"
+    "et_engine>=0.0.1"
 ]
 version = "0.0.1"
 
