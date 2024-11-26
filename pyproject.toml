@@ -16,7 +16,7 @@ dependencies = [
     "docker",
     "et_engine"
 ]
-dynamic = ["version"]
+version = "0.0.1"
 
 [project.scripts]
 et = "et_engine_cli.main:cli"
